@@ -10,7 +10,7 @@ load_dotenv()
 
 # 2. Page Configuration
 st.set_page_config(page_title="Sports AI Expert", page_icon="🏆")
-st.title("🏆 Sports AI Agent")
+st.title("Sports AI Agent")
 st.markdown("Ask me anything about **Football, Basketball, Tennis, or Cricket**!")
 
 # 3. Securely Get API Key
@@ -40,20 +40,16 @@ except Exception as e:
     st.error(f"Failed to initialize AI: {e}")
 
 # 5. User Interface
-user_input = st.text_input("Enter your sports question here:", placeholder="Who won the last Champions League?")
+user_input = st.text_input("Enter your sports question here:")
 
-if st.button("Ask Expert"):
+if st.button("Ask"):
     if user_input:
         with st.spinner("Analyzing sports data..."):
             try:
                 response = chain.invoke({"topic": user_input})
-                st.success("### Expert Response:")
+                st.success("### Response:")
                 st.write(response)
             except Exception as e:
                 st.error(f"An error occurred: {e}")
     else:
         st.warning("Please type a question first!")
-
-# 6. Footer
-st.divider()
-st.caption("Powered by Google Gemini & LangChain")
