@@ -35,7 +35,7 @@ def run_ai_logic(user_input: str):
     try:
         # 1. Setup the Model
         llm = ChatGoogleGenerativeAI(
-            model="gemini-1.5-flash", 
+            model="gemini-2.5-flash", 
             temperature=0,
             google_api_key=os.getenv("GOOGLE_API_KEY")
         ).bind_tools(tools)
